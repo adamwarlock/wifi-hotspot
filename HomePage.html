@@ -6,32 +6,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.js"></script>
+    <script src="static/route.js"></script>
+
     <script src="static/js/bootstrap.min.js"></script>
 
 </head>
 
-<body>
+<body ng-app="routeApp">
+
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+                </div>
 
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-href="#/login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+                            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Company</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-comment"></span> Support</a></li>
+                </ul>
+
+
+
             </div>
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="static/login.html"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
-                        <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Company</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> Support</a></li>
-            </ul>
-
-
-
-        </div>
-    </nav>
-
+        </nav>
+    </header>
+    <div ng-view></div>
 </body>
 
 </html>
