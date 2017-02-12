@@ -12,12 +12,76 @@
 
     <script src="static/js/bootstrap.min.js"></script>
 
+    <script>
+        function openNav() {
+            document.getElementById("navSmall").style.display="block";
+            setTimeout(function () {
+                document.getElementById("navSmall").style.width = "100%";
+            },5);
+
+        }
+
+        function closeNav() {
+
+            document.getElementById("navSmall").style.width = "0";
+            setTimeout(function () {
+                document.getElementById("navSmall").style.display="none"
+            },490);
+
+        }
+		
+    </script>
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            text-align:center;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+
+        }
+
+        .sidenav a:hover{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+       #l{display: none;}
+       #navSmall{display: none}
+
+       @media(max-width: 767px){
+            #navBig{display: none;}
+            #l{display:block;}
+        }
+    </style>
 </head>
 
 <body ng-app="routeApp">
 
     <header>
-        <nav class="navbar navbar-default">
+        <nav id="navBig" class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
@@ -35,6 +99,19 @@
 
             </div>
         </nav>
+
+        <nav  id="l" class="navbar navbar-default">
+          <a href="#">  <span  class="navbar-header navbar-brand" onclick="openNav()">&#9776; Menu</span></a>
+
+        </nav>
+        <div id="navSmall" class="container-fluid sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#"><span class="glyphicon glyphicon-home"></span></a>
+            <a ng-href="#/login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
+            <a href="#"><span class="glyphicon glyphicon-globe"></span> Company</a>
+            <a href="#"><span class="glyphicon glyphicon-comment"></span> Support</a>
+        </div>
+
     </header>
     <div ng-view></div>
 </body>

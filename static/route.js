@@ -8,7 +8,7 @@ angular.module('ngLogin', [])
     };
 })
 
-var view=angular.module('routeApp',['ngRoute']);
+var view=angular.module('routeApp',['ngRoute','ngLogin']);
 
 view.config(function($routeProvider){
 	$routeProvider
@@ -19,6 +19,10 @@ view.config(function($routeProvider){
 			
 			controller : "aboutController"
 
+		})
+		.when('/', {
+			templateUrl : 'static/home.html',
+			controller: 'mainController'
 		});
 		
 		
